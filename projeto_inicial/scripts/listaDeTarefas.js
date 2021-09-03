@@ -1,4 +1,7 @@
 
+import BotaoConcluir from './componentes/concluirTarefa.js'
+import BotaoDeletar  from './componentes/deletarTarefa.js'
+
 /* encontra o elemento botão para interação */
 const novaTarefa = document.querySelector('[data-form-button]')
 
@@ -17,6 +20,9 @@ const criarTarefa = (evento)=> {
     const conteudo = `<p class="content"> ${valor} </p>`
     tarefa.innerHTML = conteudo
 
+    /**insere o botão na tarefa */
+    tarefa.appendChild(BotaoConcluir())
+    tarefa.appendChild(BotaoDeletar())
     /**insere um novo item de lista */
     lista.appendChild(tarefa)
     input.value = " "
@@ -24,3 +30,8 @@ const criarTarefa = (evento)=> {
 
 /** verifica se houve click no botão */
 novaTarefa.addEventListener('click', criarTarefa)
+
+
+
+
+
